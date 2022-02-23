@@ -7,6 +7,7 @@ import sys
 class MatrixScreen:
     MIN_LEN = 5
     MAX_LEN = 30
+    INTRO = 'Follow the white rabbit...'
 
     def __init__(self, pause=0.05):
         self.__pause = pause
@@ -69,7 +70,11 @@ class MatrixScreen:
     def __pre_start(cls):
         """Actions to execute before starting"""
         print('Press Ctrl-C to quit.')
-        time.sleep(1)
+        print()
+        for ch in cls.INTRO:
+            print(ch, end='', flush=True)
+            time.sleep(0.15)
+        print('\n\n')
 
 
 (MatrixScreen()).start()
